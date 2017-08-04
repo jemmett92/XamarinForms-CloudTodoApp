@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismUnityToDolistMobile.Views.TodoDetail"
+             Title="EditPage">
+
+    <!--<ListView ItemsSource="{Binding ., Mode=TwoWay}">
+    <StackLayout Padding="15,0">
+            <Label Text="ID"  FontAttributes="Bold"/>
+            <Label Text="{Binding Id}"  FontAttributes="Italic" />
+            <Label Text="Task"  FontAttributes="Bold" />
+            <Label Text="{Binding Text}" FontAttributes="Italic"/>
+        </StackLayout>
+ </ListView>-->
+
+
+<ContentPage.Content>
+    <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Entry Text="{Binding Todo.Text}"/>
+        <Button Text="{Binding ButtonText}" Command="{Binding SaveTodoCommand,Mode=TwoWay}" CommandParameter="{Binding Todo}" TextColor="White" BackgroundColor="#77D065"/>
+        </StackLayout>
+</ContentPage.Content>
+
+
+</ContentPage>

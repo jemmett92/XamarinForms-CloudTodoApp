@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismUnityToDolistMobile.Views.ListViewPage" 
+             x:Name="ListViewPage"
+             Title="Tasks">
+
+
+    <StackLayout x:Name="listpage">
+        <!--<Picker  Title="Sort Tasks By">
+            <Picker.Items>
+                <x:String>Date Created</x:String>
+                <x:String>Completed</x:String>
+                <x:String>By ID</x:String>
+                <x:String>Alphabetical</x:String>
+            </Picker.Items>
+        </Picker>-->
+
+        <!--<SearchBar x:Name="searchB"
+                   BindingContext="{Binding OnFilterTextChanged, Mode=TwoWay}"
+                   SearchCommand="{Binding SearchCommandExecute}"
+                   SearchCommandParameter="{Binding OnFilterTextChanged}"
+                   Placeholder="Search Here to filter">
+        </SearchBar>-->
+
+        
+
+
+
+
+        <!--<Button Clicked="SortAlphaAsc" Text="Sort ASC" />
+        <Button Clicked="SortAlphaDesc" Text="Sort DESC" />
+        <Button Clicked="SelectAllItems" Text="Select All" />
+        <Button Clicked="DeselectAllItems" Text="Deselect All" />
+        <Button Clicked="SortDateMostRecent" Text="Sort by most recent" />-->
+
+        <syncfusion:SfListView x:Name="synclist" 
+                   ItemsSource="{Binding Todos, Mode=TwoWay}"
+                   ItemSize="150"
+                   AllowSwiping="True"
+                  SwipeOffset="360" SwipeThreshold="30"
+                  SwipeStarted="ListView_SwipeStarted" 
+                  SwipeEnded="ListView_SwipeEnded" 
+                  Swiping="ListView_Swiping">
+
+
+            <syncfusion:SfListView.RightSwipeTemplate>
+                <DataTemplate x:Name="RightSwipeTemplate">
+                    <Grid BackgroundColor="#DC595F" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Grid VerticalOptions="Center" HorizontalOptions="Center">
+                            <Image Grid.Column="0"
+                               Grid.Row="0"                                
+                               HeightRequest="35"
+                               WidthRequest="35"
+                               BackgroundColor="Transparent"
+                               BindingContextChanged="rightImage_BindingContextChanged"
+                               Source="Delete.png" />
+                           </Grid>
+                    </Grid>
+                </DataTemplate>
+            </syncfusion:SfListView.RightSwipeTemplate>
+            
+            <syncfusion:SfListView.LeftSwipeTemplate>
+                <DataTemplate x:Name="LeftSwipeTemplate">
+                <Grid>
+                    <Grid BackgroundColor="GreenYellow" HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Column="0">
+                        <Grid VerticalOptions="Center" HorizontalOptions="Center">
+                            <Image Grid.Column="0"
+                                 Grid.Row="0"
+                                 BackgroundColor="Transparent"
+                                 HeightRequest="35"
+                                 WidthRequest="35"
+                                 BindingContextChanged="leftImage_BindingContextChanged"
+                                 Source="EditIcon.png" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </DataTemplate>
+            </syncfusion:SfListView.LeftSwipeTemplate>
+
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Text="ID"  FontAttributes="Bold"/>
+                        <Label Grid.Row="1" Text="{Binding Id}"  FontAttributes="Italic" />
+                        <Label Grid.Row="2" Text="Task"  FontAttributes="Bold" />
+                        <Label Grid.Row="3" Text="{Binding Text}" FontAttributes="Italic"/>
+                        <Label Grid.Row="4" Text="Created On"  FontAttributes="Bold" />
+                        <Label Grid.Row="5" Text="{Binding CreatedAt, StringFormat='{0:dd/MM/yyyy HH:MM:ss tt}'}" FontAttributes="Italic"/>
+                    </Grid>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        
+        </syncfusion:SfListView>
+    </StackLayout>
+</ContentPage>
+    
+
+<!--<ListView ItemsSource="{Binding Todos, Mode=TwoWay}"
+              CachingStrategy="RecycleElement"
+              RowHeight="150" >
+    <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Tapped="OnItemSelected">
+                        <ViewCell.ContextActions>
+                            <MenuItem Command="{Binding Path=BindingContext.FilterByDateCommand, Source={x:Reference Name=ListViewPage }}" CommandParameter="{Binding .}"  Text="Filter"  />
+                            <MenuItem Command="{Binding Path=BindingContext.DeleteTodoCommand, Source={x:Reference Name=ListViewPage }}" CommandParameter="{Binding .}"  Text="Delete" IsDestructive="True" />
+                        </ViewCell.ContextActions>
+
+                        <StackLayout Padding="15,0">
+                            <Label Text="ID"  FontAttributes="Bold"/>
+                            <Label Text="{Binding Id}"  FontAttributes="Italic" />
+                            <Label Text="Task"  FontAttributes="Bold" />
+                            <Label Text="{Binding Text}" FontAttributes="Italic"/>
+                            <Label Text="Created On"  FontAttributes="Bold" />
+                            <Label Text="{Binding CreatedAt, StringFormat='{0:dd/MM/yyyy HH:MM:ss tt}'}" FontAttributes="Italic"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>                   
+            </ListView.ItemTemplate>
+        </ListView>-->
+        
+
+
+
+

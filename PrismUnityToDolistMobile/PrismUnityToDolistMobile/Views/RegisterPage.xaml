@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismUnityToDolistMobile.Views.RegisterPage">
+
+    <StackLayout Spacing="20" Padding="20"
+                         VerticalOptions="Center">
+        <Entry Placeholder="Username"
+                       Text="{Binding Username}"/>
+        <Entry Placeholder="Password"
+                       Text="{Binding Password}"
+                       IsPassword="true"/>
+        <Entry Placeholder="Re-Enter Password"
+                       Text="{Binding Password}"
+                       IsPassword="true"/>
+        <Entry Placeholder="Email"
+                       Text="{Binding Email}"
+                       IsPassword="true"/>
+        <Button Text="Register" TextColor="White"
+                        BackgroundColor="#77D065"
+                        Command="{Binding NavigateToLoginCommand}"/>
+    </StackLayout>
+</ContentPage>

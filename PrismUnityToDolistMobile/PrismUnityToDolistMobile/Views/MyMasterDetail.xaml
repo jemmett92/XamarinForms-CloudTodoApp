@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismUnityToDolistMobile.Views.MyMasterDetail">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Default">
+            <StackLayout BackgroundColor="White"   >
+                <Grid BackgroundColor="#2196F3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="300*" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Text="Welcome User" TextColor="White" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="End" HorizontalTextAlignment="Center"/>
+                    <Image Grid.Row="0" Source="AppIcon.png" WidthRequest="60" HeightRequest="60" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Grid>
+                 
+                <Button BackgroundColor="#77D065"  Text="MainPage" Command="{Binding NavigateCommand}" CommandParameter="MyNavigationPage/MainPage" TextColor="White" />
+                <Button BackgroundColor="#77D065" Text="Webview" Command="{Binding NavigateCommand}" CommandParameter="MyNavigationPage/WebViewPage" TextColor="White" />
+                <Button BackgroundColor="#77D065" Text="ListViewPage" Command="{Binding NavigateCommand}" CommandParameter="MyNavigationPage/ListViewPage" TextColor="White"/>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>
+
